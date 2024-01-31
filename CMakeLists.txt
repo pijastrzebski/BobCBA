@@ -6,13 +6,21 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("BobCBA")
+project ("BobChatBotApp")
 
-# Add source to this project's executable.
-add_executable (BobCBA "BobCBA.cpp" "BobCBA.h")
+set(sources 
+	"main.cpp" 
+	"BobChatBotApp.cpp" 
+)
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET BobCBA PROPERTY CXX_STANDARD 20)
-endif()
+set(headers
+	"BobChatBotApp.hpp" 
+	"IApp.hpp"
+	"IModule.hpp" 
+)
+
+add_executable (BobChatBotApp ${sources} ${headers} "LLaMaModule.cpp")
+
+set_property(TARGET BobChatBotApp PROPERTY CXX_STANDARD 20)
 
 # TODO: Add tests and install targets if needed.
