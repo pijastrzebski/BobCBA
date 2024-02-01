@@ -21,6 +21,12 @@ set(headers
 
 add_executable (BobChatBotApp ${sources} ${headers} "LLaMaModule.cpp")
 
+include(options.cmake)
+
+if(BOBCBA_USE_LLAMACPP)	
+	add_subdirectory(3rd/llama.cpp)
+endif()
+
 set_property(TARGET BobChatBotApp PROPERTY CXX_STANDARD 20)
 
 # TODO: Add tests and install targets if needed.

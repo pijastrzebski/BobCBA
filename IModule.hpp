@@ -2,8 +2,9 @@
 
 namespace bobcba {
 
-	struct IModule {
-		virtual ~IModule() = 0;
+	class IModule {
+	public:
+		virtual ~IModule() = default;
 
 		virtual int init() = 0;
 	};

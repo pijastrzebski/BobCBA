@@ -2,8 +2,11 @@
 
 #include "Utils.hpp"
 
-int bobcba::LLaMaModule::init()
+namespace bobcba
 {
+	int LLaMaModule::init()
+	{
 
-	return utils::OK;
+		return utils::OK;
+	}
 }

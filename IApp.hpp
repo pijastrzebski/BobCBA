@@ -2,7 +2,8 @@
 
 namespace bobcba {
 
-	struct IApp {
+	class IApp {
+	public:
 		virtual ~IApp() = default;
 
 		virtual int init() = 0;
